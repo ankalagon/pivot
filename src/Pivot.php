@@ -49,6 +49,12 @@ class Pivot
     private $_columnDictionary = array();
 
     /**
+     * Default empty value
+     * @var array
+     */
+    private $_emptyValue = '';
+
+    /**
     * Types of returned values
     */
     const SUM   = 1;
@@ -91,6 +97,18 @@ class Pivot
     }
 
     /**
+     * Set default value if value is not present in pivot
+     * @param  String $value
+     * @throws \ValueObjects\Exception\InvalidNativeArgumentException
+     * @return $this
+     */
+    public function setEmptyValue($value)
+    {
+        $this->_emptyValue = $value;
+        return $this;
+    }
+
+    /**
      * Set valuetype to return in pivot table
      * @param Integer $type
      * @throws \InvalidArgumentException
@@ -118,16 +136,10 @@ class Pivot
         }
 
         try {
-            $this->_validate($pivotRow);
             $this->_add($pivotRow);
         } catch (Exceptions\InvalidRowException $e) {
             return false;
         }
-    }
-
-    private function _validate(Row $pivotRow)
-    {
-
     }
 
     private function _add(Row $pivotRow)
@@ -136,7 +148,7 @@ class Pivot
         $columnValue = $pivotRow->get($this->_columnsGroupBy);
         $value = $pivotRow->get($this->_valueField);
 
-        $this->_columnDictionary[] = $columnValue;
+        $this->_columnDictionary[$columnValue] = $columnValue;
         $this->_count++;
 
         $this->_rows[$rowValue][$columnValue] = $this->_processValue($rowValue, $columnValue, $value);
@@ -158,24 +170,23 @@ class Pivot
         }
     }
 
-    public function draw()
+    public function draw($file)
     {
         asort($this->_columnDictionary);
-        $str = "\t".implode("\t", $this->_columnDictionary).PHP_EOL;
+        file_put_contents($file, "\t".implode("\t", $this->_columnDictionary).PHP_EOL);
 
         foreach ($this->_rows as $rowValue => $values) {
-            $str .= $rowValue;
+
+            $str = $rowValue;
             foreach ($this->_columnDictionary as $dictionary) {
                 if (isset($values[$dictionary])) {
-                    $str .= "\t".$values[$dictionary];
+                    $str .= "\t".trim($values[$dictionary]);
                 } else {
-                    $str .= "\t";
+                    $str .= "\t".$this->_emptyValue;
                 }
             }
 
-            $str .= PHP_EOL;
+            file_put_contents($file, $str.PHP_EOL, FILE_APPEND);
         }
-
-        return $str;
     }
 }

@@ -8,15 +8,16 @@ ini_set('display_errors', true);
 $pivot = new \Pivot\Pivot();
 
 $pivot->rowsGroupBy(0)
-->columnsGroupBy(1)
-->setValueField(2)
+->columnsGroupBy(3)
+->setValueField(4)
+->setEmptyValue(0)
 ->setValueType(\Pivot\Pivot::VALUE);
 
 
-$file = fopen('/tmp/shuffle', 'r');
+$file = fopen(__DIR__.'/presto_to_pivot', 'r');
 while($rawRow = fgets($file, 1024)) {
     $row = explode("\t", $rawRow);
     $pivot->addRow(new \Pivot\Row($row));
 }
 
-echo $pivot->draw();
+$pivot->draw('/tmp/pivot_result');
