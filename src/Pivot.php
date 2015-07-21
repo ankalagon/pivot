@@ -142,6 +142,10 @@ class Pivot
         }
     }
 
+    /**
+     * Add pivotRow to all rows and process dictionary
+     * @param Row $pivotRow
+     */
     private function _add(Row $pivotRow)
     {
         $rowValue = $pivotRow->get($this->_rowsGroupBy);
@@ -154,6 +158,13 @@ class Pivot
         $this->_rows[$rowValue][$columnValue] = $this->_processValue($rowValue, $columnValue, $value);
     }
 
+    /**
+     * [_processValue description]
+     * @param  String $rowValue    Position of column to find in already calculated collection
+     * @param  String $columnValue Position of column to find in already calculated collection
+     * @param  Mixed $value        Value to process
+     * @return Mixed               Processed value
+     */
     private function _processValue($rowValue, $columnValue, $value)
     {
         if ($this->_valueType == self::SUM) {
@@ -165,28 +176,16 @@ class Pivot
         } elseif ($this->_valueType == self::VALUE) {
             return $value;
         } else {
-            // @TODO:fix exception message
-            throw new Exception();
+            throw new Exceptions\InvalidValueTypeException('Invalid valueType, first set valueType using setValueType  ');
         }
     }
 
-    public function draw($file)
+    /**
+     * Sort dictionary ascending
+     * @return null
+     */
+    public function prepareToDraw()
     {
         asort($this->_columnDictionary);
-        file_put_contents($file, "\t".implode("\t", $this->_columnDictionary).PHP_EOL);
-
-        foreach ($this->_rows as $rowValue => $values) {
-
-            $str = $rowValue;
-            foreach ($this->_columnDictionary as $dictionary) {
-                if (isset($values[$dictionary])) {
-                    $str .= "\t".trim($values[$dictionary]);
-                } else {
-                    $str .= "\t".$this->_emptyValue;
-                }
-            }
-
-            file_put_contents($file, $str.PHP_EOL, FILE_APPEND);
-        }
     }
 }
