@@ -1,7 +1,28 @@
 Service can recognize ``postal_code``, ``city`` and ``address`` (rest of address line) from address provided by VIES service (http://ec.europa.eu/taxation_customs/vies/?locale=en).
 
-Example results:
-# test markdown
+Requirements
+------------
+
+* PHP5.3
+
+Installation
+------------
+
+Update your composer.json and run `composer update`
+
+``` json
+{
+    "require": {
+        "ankalagon/vies-address-formatter": "dev-master"
+    }
+}
+```
+
+or execute
+
+``` bash
+    composer require ankalagon/vies-address-formatter
+```
 
 | IsoCode  | Address line | Return data |
 | ------------- | ------------- | ------------- |
