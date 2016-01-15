@@ -12,7 +12,7 @@ Example results:
 | GB | 254 BANNERDALE ROAD<br>SHEFFIELD<br>S11 9FE | Array (<br>    <space><space>[city] => Sheffield<br>    <space><space>[code] => S11 9FE<br>    <space><space>[address] => 254 Bannerdale Road<br>)<br> |
 | PT | R FIGUEIRAS N 616 MAIA<br>4475-011<br>MAIA | Array (<br>    <space><space>[city] => Maia<br>    <space><space>[code] => 4475-011<br>    <space><space>[address] => R Figueiras N 616 Maia<br>)<br> |
 | LU | 40, RUE ANTOINE MEYER L-2153  LUXEMBOURG | Array (<br>    <space><space>[city] => Luxembourg<br>    <space><space>[code] => L-2153<br>    <space><space>[address] => 40, Rue Antoine Meyer<br>)<br> |
-| NL |  EEKHORSTWEG 00031 A 7942KC MEPPEL  | Array (<br>    <space><space>[city] => Meppel<br>    <space><space>[code] => 7942KC<br>    <space><space>[address] => Eekhorstweg 00031 A<br>)<br> |
+| NL |  EEKHORSTWEG 00031 A 7942KC MEPPEL  | Array (<br>    <space><space>[city] => Meppel<br><space><space>&nbsp;&nbsp;[code] => 7942KC<br>    <space><space>[address] => Eekhorstweg 00031 A<br>)<br> |
 | BE | EZELSTRAAT 69 1 8000  BRUGGE | Array (<br>    <space><space>[city] => Brugge<br>    <space><space>[code] => 8000<br>    <space><space>[address] => Ezelstraat 69 1<br>)<br> |
 | IT | P.ZA FERRAVILLA N. 2  20092 CINISELLO BALSAMO MI  | Array (<br>    <space><space>[city] => Cinisello Balsamo Mi<br>    <space><space>[code] => 20092<br>    <space><space>[address] => P.za Ferravilla N. 2<br>)<br> |
 | BG | ул. Самуиловско шосе  №1А обл.СЛИВЕН, гр.СЛИВЕН 8800 | Array (<br>    <space><space>[city] => <br>    <space><space>[code] => 8800<br>    <space><space>[address] => ул. самуиловско шосе  №1а обл.сливен, гр.сливен<br>)<br> |
