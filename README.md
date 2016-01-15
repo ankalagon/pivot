@@ -4,7 +4,7 @@
 | ------------- | ------------- | ------------- |
 | PL | KORNELA UJEJSKIEGO 12 M7<br>30-102 KRAKÓW | Array<br>(<br>    [city] => Kraków<br>    [code] => 30-102<br>    [address] => Kornela Ujejskiego 12 M7<br>)<br> | 
 | PL | AL. 29 LISTOPADA 155C<br>31-406 KRAKów | Array<br>(<br>    [city] => Kraków<br>    [code] => 31-406<br>    [address] => Al. 29 Listopada 155c<br>)<br> | 
-| PL | AL. JERZEGO WASZYNGTONA 45/51<br>04-008 WARSZAWA | Array<br>(<br>    [city] => Warszawa<br>    [code] => 04-008<br>    [address] => Al. Jerzego Waszyngtona 45/51<br>)<br> | 
+| PL | AL. JERZEGO WASZYNGTONA 45/51<br>04-008 WARSZAWA | Array<br>(<br>\t[city] => Warszawa<br>    [code] => 04-008<br>    [address] => Al. Jerzego Waszyngtona 45/51<br>)<br> | 
 | GB | C/O BMW UK GROUPTAX FR-3-UK SUMMIT ONE SUMMIT AVENUE<br>FARNBOROUGH<br>GU14 0FB | Array<br>(<br>    [city] => Farnborough<br>    [code] => GU14 0FB<br>    [address] => C/o Bmw Uk Grouptax Fr-3-uk Summit One Summit Avenue<br>)<br> | 
 | GB | 28-29 THE BROADWAY EALING LONDON W5 2NP | Array<br>(<br>    [city] => <br>    [code] => W5 2NP<br>    [address] => 28-29 The Broadway Ealing London<br>)<br> | 
 | GB | 28-29 THE BROADWAY<br>EALING<br>LONDON<br><br>W5 2NP | Array<br>(<br>    [city] => London<br>    [code] => W5 2NP<br>    [address] => 28-29 The Broadway Ealing<br>)<br> | 
